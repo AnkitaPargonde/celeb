@@ -4,7 +4,8 @@
 
 bool knows(int a, int b) {
     
-    int knows_matrix[4][4] = {
+    int knows_matrix[4][4] =
+    {
         {0, 1, 1, 1},  
         {0, 0, 1, 1},  
         {0, 0, 0, 1},  
@@ -14,20 +15,26 @@ bool knows(int a, int b) {
     return knows_matrix[a][b] == 1;
 }
 
-int findCelebrity(int n) {
+int findCelebrity(int n)
+{
     int candidate = 0;
 
-    for (int i = 1; i < n; i++) {
-        if (knows(candidate, i)) {
+    for (int i = 1; i < n; i++) 
+    {
+        if (knows(candidate, i))
+        {
             
-            candidate = i;  // Update candidate to i
+            candidate = i; 
         }
     }
 
     
-    for (int i = 0; i < n; i++) {
-        if (i != candidate) {
-            if (knows(candidate, i) || !knows(i, candidate)) {
+    for (int i = 0; i < n; i++)
+    {
+        if (i != candidate)
+        {
+            if (knows(candidate, i) || !knows(i, candidate)) 
+            {
                 
                 return -1;
             }
@@ -37,25 +44,24 @@ int findCelebrity(int n) {
     return candidate;
 }
 
-void displayResult(int celebrity) {
-    if (celebrity != -1) {
+void displayResult(int celebrity) 
+{
+    if (celebrity != -1) 
+    {
         printf("The celebrity is person %d.\n", celebrity);
-    } else {
+    }
+    else
+    {
         printf("There is no celebrity.\n");
     }
 }
 
-int main() {
+int main() 
+{
     int n;
-
-    
     printf("Enter the number of people in the party: ");
     scanf("%d", &n);
-
-  
     int celebrity = findCelebrity(n);
-
-    
     displayResult(celebrity);
 
     return 0;
